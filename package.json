@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "antd": "^3.16.1",
+    "concurrently": "^4.1.0",
+    "cron": "^1.7.0",
+    "deep-diff": "^1.0.2",
+    "express": "^4.16.4",
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "request": "^2.88.0",
+    "xml-js": "^1.6.11"
+  },
+  "scripts": {
+    "start": "concurrently \"node products.cron.js\" \"node index.js\"",
+    "start:dev": "concurrently \"npm run start:client\" \"npm run start:products:cron\" \"npm run start:webserver\"",
+    "start:products:cron": "nodemon -x 'node src/cron/products.js'",
+    "start:webserver": "nodemon -x 'node src/server/index.js'",
+    "start:client": "parcel src/client/index.html",
+    "lint": "node_modules/.bin/eslint src/*.js* src/**/*.js*"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "nodemon": "^1.18.10"
+  }
+}
